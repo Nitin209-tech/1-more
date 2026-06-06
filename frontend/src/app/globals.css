@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+:root {
+  --background: #05060A;
+  --foreground: #F6F8FC;
+  --discord-blurple: #5865F2;
+  --neon-cyan: #00F0FF;
+  --neon-pink: #FF007A;
+  --neon-purple: #9D00FF;
+  --card-bg: rgba(10, 11, 18, 0.65);
+  --border-glow: rgba(88, 101, 242, 0.15);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Custom premium scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020204;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #171923;
+  border: 2px solid #020204;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--discord-blurple);
+}
+
+/* Animated Cyberpunk Grid Background */
+.cyber-grid {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1.5px, transparent 0);
+  background-size: 32px 32px;
+}
+
+/* Glassmorphism details */
+.glass-panel {
+  background: rgba(10, 11, 20, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(15, 17, 28, 0.85);
+  border-color: rgba(0, 240, 255, 0.25);
+  box-shadow: 0 12px 40px 0 rgba(0, 240, 255, 0.06);
+  transform: translateY(-2px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Gradient Texts */
+.gradient-text-cyber {
+  background: linear-gradient(135deg, #FFF 10%, #00F0FF 50%, #9D00FF 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-pink {
+  background: linear-gradient(135deg, #FF007A 20%, #9D00FF 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animated background glow circles */
+.glow-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  opacity: 0.45;
+  animation: blob-float 15s infinite alternate ease-in-out;
+}
+
+@keyframes blob-float {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(30px, -40px) scale(1.1);
+  }
+  100% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+/* Glowing buttons */
+.btn-glow-cyan {
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+}
+.btn-glow-cyan:hover {
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.btn-glow-blurple {
+  position: relative;
+  box-shadow: 0 0 15px rgba(88, 101, 242, 0.3);
+}
+.btn-glow-blurple:hover {
+  box-shadow: 0 0 25px rgba(88, 101, 242, 0.55);
+}
+
+/* Neon Table badge */
+.badge-neon {
+  box-shadow: inset 0 0 8px currentColor;
+}
+
+/* ─── Toast Notification Animations ─────────────────────────────────── */
+@keyframes toast-progress {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0); }
+}
+
+@keyframes toast-scan {
+  0%   { left: -100%; opacity: 0; }
+  30%  { opacity: 1; }
+  100% { left: 200%; opacity: 0; }
+}
+
+@keyframes toast-pulse-border {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
